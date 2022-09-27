@@ -96,18 +96,29 @@ else:
 
 
 
-from tkinter import *    # Python 2.7 "from Tkinter import *"
-from tkinter import ttk  # Python 2.7 "import ttk"
+import tkinter as tk    # Python 2.7 "from Tkinter import *"
 from PIL import Image, ImageTk
 from urllib.request import urlopen
 
 
-mainWin = Tk()
+mainWin = tk.Tk()
 #for i in range(len(rows)):
     #ausgabe = "Test"
-ausgabe = f"{j_time[1]} - {j_train[1]} nach {j_destination[1]} von Gleis {j_platform[1]} - Aktuelles: {j_delay[1]}\n"
-label_1 = ttk.Label(mainWin, justify=LEFT, anchor="w", text=ausgabe).grid()
+#ausgabe = f"{j_time[1]} - {j_train[1]} nach {j_destination[1]} von Gleis {j_platform[1]} - Aktuelles: {j_delay[1]}\n"
+#label_1 = tk.Label(mainWin, justify=tk.LEFT, anchor="w", text=ausgabe).grid()
     #label_2 = ttk.Label(mainWin, text = "\n").pack()
+
+
+for i in range(3):
+    for j in range(3):
+        frame = tk.Frame(
+            master=mainWin,
+            relief=tk.RAISED,
+            borderwidth=0
+        )
+        frame.grid(row=i, column=j)
+        label = tk.Label(master=frame, text=f"Row {i}\nColumn {j}")
+        label.pack()
 
 """
 url_image = "https://ssl.gstatic.com/onebox/weather/64/sunny.png"
